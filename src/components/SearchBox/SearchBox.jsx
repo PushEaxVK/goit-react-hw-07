@@ -21,6 +21,7 @@ const SearchBox = () => {
         value={filter}
         onChange={(evt) => handleQuery(evt.target.value)}
         id={queryId}
+        autoComplete="off"
       />
     </div>
   );
