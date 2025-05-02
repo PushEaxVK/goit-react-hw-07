@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-06",
+  "name": "goit-react-hw-07",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build-github": "vite build --base=/goit-react-hw-06/",
+    "build-github": "vite build --base=/goit-react-hw-07/",
     "start": "vite --host"
   },
   "dependencies": {
@@ -21,7 +21,6 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
-    "redux-persist": "^6.0.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
