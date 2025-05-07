@@ -46,7 +46,7 @@ const ContactForm = () => {
       <Form className={css.contactForm}>
         <div className={css.fieldBox}>
           <label htmlFor={nameFieldId}>Name</label>
-          <Field type="text" name="name" id={nameFieldId} autocomplete="name" />
+          <Field type="text" name="name" id={nameFieldId} autoComplete="name" />
 
           <ErrorMessage name="name" component="span" className={css.error} />
         </div>
@@ -56,7 +56,7 @@ const ContactForm = () => {
             type="text"
             name="number"
             id={numberFieldId}
-            autocomplete="phone"
+            autoComplete="phone"
           />
 
           <ErrorMessage name="number" component="span" className={css.error} />
