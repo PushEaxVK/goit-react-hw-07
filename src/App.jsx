@@ -19,7 +19,7 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {isLoading && <b>Loading contacts...</b>}
+      {isLoading && !error && <b>Loading contacts...</b>}
       {error && <b>{error}</b>}
       <ContactList />
     </div>
