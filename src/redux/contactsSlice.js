@@ -18,31 +18,39 @@ const handleFulfilled = (state) => {
   state.error = null;
 };
 
+const buildCase = (builder) => {
+  const result = {
+    addCase: (thunk, fn) => {
+      return buildCase(
+        builder
+          .addCase(thunk.pending, handlePending)
+          .addCase(thunk.fulfilled, (state, action) => {
+            handleFulfilled(state);
+            return fn(state, action);
+          })
+          .addCase(thunk.rejected, handleRejected)
+      );
+    },
+  };
+  return result;
+};
+
 const slice = createSlice({
   name: 'contacts',
   initialState,
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchContacts.pending, handlePending)
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        handleFulfilled(state);
+    buildCase(builder)
+      .addCase(fetchContacts, (state, action) => {
         state.items = action.payload;
       })
-      .addCase(fetchContacts.rejected, handleRejected)
-      .addCase(addContact.pending, handlePending)
-      .addCase(addContact.fulfilled, (state, action) => {
-        handleFulfilled(state);
+      .addCase(addContact, (state, action) => {
         state.items.push(action.payload);
       })
-      .addCase(addContact.rejected, handleRejected)
-      .addCase(deleteContact.pending, handlePending)
-      .addCase(deleteContact.fulfilled, (state, action) => {
-        handleFulfilled(state);
+      .addCase(deleteContact, (state, action) => {
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload.id
         );
-      })
-      .addCase(deleteContact.rejected, handleRejected);
+      });
   },
 });
 
