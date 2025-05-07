@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// файл слайсу для фільтрів
 const slice = createSlice({
   name: 'filters',
   initialState: {
@@ -13,10 +12,8 @@ const slice = createSlice({
   },
 });
 
-// Експортуємо фабрики екшенів
 export const { changeFilter } = slice.actions;
 
-export const selectNameFilter = (state) => state.filters.name;
-
-// Експортуємо редюсер слайсу
 export default slice.reducer;
+
+export const selectNameFilter = (state) => state.filters.name;
